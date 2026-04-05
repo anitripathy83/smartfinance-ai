@@ -13,7 +13,7 @@ SmartFinance AI is a custom Odoo module that transforms your ERP into an intelli
 
 ---
 
-## Features
+## ✨ Features
 
 ### 📊 KPI Dashboard
 A live, unified dashboard showing every critical business metric in one screen:
@@ -25,7 +25,7 @@ A live, unified dashboard showing every critical business metric in one screen:
 - Overall financial health score
 
 ### 🚨 AI Insights Engine
-The core of SmartFinance AI. A Python engine that runs daily and automatically:
+A Python engine that runs daily and automatically:
 - Detects overdue invoices and calculates total outstanding amount
 - Monitors cash flow trends and flags declining inflow
 - Identifies stale CRM opportunities at risk
@@ -33,16 +33,13 @@ The core of SmartFinance AI. A Python engine that runs daily and automatically:
 - Tracks purchase orders awaiting vendor bills
 - Color-codes alerts by severity: Critical, High, Medium, Low
 
-Each insight includes:
-- What the problem is (with exact AED figures)
-- Why it matters
-- Step-by-step recommended action
+Each insight includes what the problem is (with exact AED figures), why it matters, and a step-by-step recommended action.
 
 ### 🏥 Financial Health Score
 A composite 0-100 score updated daily, calculated across 5 weighted dimensions:
 
 | Dimension | Weight | How it is scored |
-|-----------|--------|-----------------|
+|-----------|--------|------------------|
 | Cash Flow | 35% | Inflow vs outflow ratio |
 | Invoicing | 30% | Overdue invoice rate |
 | Workforce | 20% | Employee profile completeness |
@@ -69,7 +66,8 @@ Generates a complete executive financial summary in one click:
 ---
 
 ## 🏗️ Architecture
-SmartFinance AI
+```
+smartfinance_ai/
 │
 ├── models/
 │   ├── financial_insight.py    # AI Insight and Health Score models
@@ -90,7 +88,9 @@ SmartFinance AI
 │   └── ir.model.access.csv     # Access control rules
 │
 └── data/
-└── cron_jobs.xml           # Daily analysis scheduler
+    └── cron_jobs.xml           # Daily analysis scheduler
+```
+
 ---
 
 ## 🔗 Odoo Modules Integrated
@@ -115,17 +115,29 @@ SmartFinance AI
 
 ### Steps
 
-1. Clone this repository: git clone https://github.com/anitripathy83/smartfinance-ai.git
-2. Copy the module to your Odoo addons path: cp -r smartfinance-ai /path/to/odoo/addons/
-3. Restart Odoo server: python odoo-bin -c odoo.conf -u smartfinance_ai
-4. In Odoo:
-   - Go to Settings and activate Developer Mode
-   - Go to Apps and click Update App List
-   - Search SmartFinance AI and click Install
+**1. Clone this repository:**
+```bash
+git clone https://github.com/anitripathy83/smartfinance-ai.git
+```
 
-5. Trigger first analysis:
-   - Go to Settings → Technical → Scheduled Actions
-   - Find SmartFinance AI Daily Analysis and click Run Manually
+**2. Copy the module to your Odoo addons path:**
+```bash
+cp -r smartfinance-ai /path/to/odoo/addons/
+```
+
+**3. Restart Odoo server:**
+```bash
+python odoo-bin -c odoo.conf -u smartfinance_ai
+```
+
+**4. In Odoo:**
+- Go to Settings and activate Developer Mode
+- Go to Apps → Update App List
+- Search **SmartFinance AI** and click Install
+
+**5. Trigger first analysis:**
+- Go to Settings → Technical → Scheduled Actions
+- Find **SmartFinance AI — Daily Analysis** → click **Run Manually**
 
 ---
 
@@ -143,18 +155,18 @@ SmartFinance AI
 
 ## 🛠️ Tech Stack
 
-- Backend: Python 3, Odoo ORM
-- Frontend: Odoo XML Views, QWeb
-- Database: PostgreSQL
-- Platform: Odoo 19 Community Edition
+- **Backend:** Python 3, Odoo ORM
+- **Frontend:** Odoo XML Views, QWeb
+- **Database:** PostgreSQL
+- **Platform:** Odoo 19 Community Edition
 
 ---
 
 ## 👨‍💻 Author
 
-**Anirudh Tripathy**
-Built for the Odoo Hackathon 2026
-GitHub: @anitripathy83
+**Anirudh Tripathy**  
+Built for the Odoo Hackathon 2026  
+GitHub: [@anitripathy83](https://github.com/anitripathy83)
 
 ---
 
