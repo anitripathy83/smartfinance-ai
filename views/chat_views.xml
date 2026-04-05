@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_chat_form" model="ir.ui.view">
+    <field name="name">smartfinance.chat.form</field>
+    <field name="model">smartfinance.chat</field>
+    <field name="arch" type="xml">
+      <form string="AI Financial Assistant">
+        <header>
+          <button name="action_ask_overdue" type="object"
+                  string="❓ Overdue Invoices" class="btn-secondary"/>
+          <button name="action_ask_cashflow" type="object"
+                  string="💰 Cash Flow" class="btn-secondary"/>
+          <button name="action_ask_risks" type="object"
+                  string="🚨 Top Risks" class="btn-secondary"/>
+          <button name="action_ask_recommendations" type="object"
+                  string="💡 Recommendations" class="btn-secondary"/>
+          <button name="action_ask_health" type="object"
+                  string="🏥 Health Score" class="btn-secondary"/>
+        </header>
+        <sheet>
+          <h1>SmartFinance AI Assistant</h1>
+          <p>Click a question above or type your own below.</p>
+          <group>
+            <field name="name" invisible="1"/>
+            <field name="user_question" string="Your Question"
+                   placeholder="e.g. What are my biggest financial risks?"/>
+            <button name="action_send_message" type="object"
+                    string="Ask AI →" class="btn-primary"/>
+          </group>
+          <separator string="Conversation"/>
+          <field name="message_ids" nolabel="1">
+            <list create="0" delete="0">
+              <field name="role"/>
+              <field name="content"/>
+              <field name="create_date" optional="show"/>
+            </list>
+          </field>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_chat_list" model="ir.ui.view">
+    <field name="name">smartfinance.chat.list</field>
+    <field name="model">smartfinance.chat</field>
+    <field name="arch" type="xml">
+      <list string="Chat Sessions">
+        <field name="name"/>
+        <field name="create_date"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_smartfinance_chat" model="ir.actions.act_window">
+    <field name="name">AI Assistant</field>
+    <field name="res_model">smartfinance.chat</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+</odoo>

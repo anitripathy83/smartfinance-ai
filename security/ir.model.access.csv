@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_smartfinance_insight,smartfinance.insight,model_smartfinance_insight,base.group_user,1,1,1,1
+access_smartfinance_health,smartfinance.health.score,model_smartfinance_health_score,base.group_user,1,1,1,1
+access_smartfinance_engine,smartfinance.engine,model_smartfinance_engine,base.group_system,1,1,1,1
+access_smartfinance_chat,smartfinance.chat,model_smartfinance_chat,base.group_user,1,1,1,1
+access_smartfinance_chat_message,smartfinance.chat.message,model_smartfinance_chat_message,base.group_user,1,1,1,1
+access_smartfinance_kpi,smartfinance.kpi,model_smartfinance_kpi,base.group_user,1,1,1,1
+access_smartfinance_report,smartfinance.report,model_smartfinance_report,base.group_user,1,1,1,1

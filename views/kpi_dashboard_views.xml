@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_kpi_dashboard_form" model="ir.ui.view">
+    <field name="name">smartfinance.kpi.form</field>
+    <field name="model">smartfinance.kpi</field>
+    <field name="arch" type="xml">
+      <form string="KPI Dashboard" create="false">
+        <sheet>
+          <h1>📊 Financial KPI Dashboard</h1>
+          <group string="💰 Cash Flow (Last 30 Days)">
+            <group>
+              <field name="total_inflow" string="Cash Inflow (AED)" readonly="1"/>
+              <field name="total_outflow" string="Cash Outflow (AED)" readonly="1"/>
+              <field name="net_cash" string="Net Cash Position (AED)" readonly="1"/>
+            </group>
+          </group>
+          <group string="📄 Invoicing">
+            <group>
+              <field name="overdue_count" string="Overdue Invoices" readonly="1"/>
+              <field name="total_overdue" string="Total Overdue (AED)" readonly="1"/>
+            </group>
+          </group>
+          <group string="📊 CRM Pipeline">
+            <group>
+              <field name="open_opportunities" string="Open Deals" readonly="1"/>
+              <field name="pipeline_value" string="Pipeline Value (AED)" readonly="1"/>
+            </group>
+          </group>
+          <group string="👥 Workforce">
+            <group>
+              <field name="employee_count" string="Active Employees" readonly="1"/>
+            </group>
+          </group>
+          <group string="🏥 Overall Health">
+            <group>
+              <field name="health_score" string="Health Score (/100)" readonly="1"
+                     widget="progressbar"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_smartfinance_kpi" model="ir.actions.act_window">
+    <field name="name">KPI Dashboard</field>
+    <field name="res_model">smartfinance.kpi</field>
+    <field name="view_mode">form</field>
+    <field name="target">current</field>
+  </record>
+
+</odoo>

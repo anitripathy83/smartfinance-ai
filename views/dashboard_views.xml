@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_health_score_kanban" model="ir.ui.view">
+    <field name="name">smartfinance.health.score.kanban</field>
+    <field name="model">smartfinance.health.score</field>
+    <field name="arch" type="xml">
+      <kanban create="false">
+        <field name="overall_score"/>
+        <field name="cashflow_score"/>
+        <field name="invoicing_score"/>
+        <field name="hr_score"/>
+        <field name="crm_score"/>
+        <field name="purchase_score"/>
+        <field name="date"/>
+        <templates>
+          <t t-name="card">
+            <div class="oe_kanban_global_click">
+              <strong>Health Score: <t t-out="record.overall_score.value"/>/100</strong>
+              <div>Cash Flow: <t t-out="record.cashflow_score.value"/></div>
+              <div>Invoicing: <t t-out="record.invoicing_score.value"/></div>
+              <div>Workforce: <t t-out="record.hr_score.value"/></div>
+              <div>CRM: <t t-out="record.crm_score.value"/></div>
+              <div>Purchasing: <t t-out="record.purchase_score.value"/></div>
+              <div class="text-muted"><t t-out="record.date.value"/></div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+  <record id="view_health_score_list" model="ir.ui.view">
+    <field name="name">smartfinance.health.score.list</field>
+    <field name="model">smartfinance.health.score</field>
+    <field name="arch" type="xml">
+      <list string="Health Scores" create="false">
+        <field name="date"/>
+        <field name="overall_score"/>
+        <field name="cashflow_score"/>
+        <field name="invoicing_score"/>
+        <field name="hr_score"/>
+        <field name="crm_score"/>
+        <field name="purchase_score"/>
+      </list>
+    </field>
+  </record>
+
+</odoo>

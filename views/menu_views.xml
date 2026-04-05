@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <menuitem id="menu_smartfinance_root"
+            name="SmartFinance AI"
+            sequence="5"/>
+
+  <menuitem id="menu_smartfinance_kpi"
+            name="📊 KPI Dashboard"
+            parent="menu_smartfinance_root"
+            action="action_smartfinance_kpi"
+            sequence="1"/>
+
+  <menuitem id="menu_smartfinance_insights"
+            name="AI Insights"
+            parent="menu_smartfinance_root"
+            action="action_smartfinance_insights"
+            sequence="2"/>
+
+  <menuitem id="menu_smartfinance_health"
+            name="Health Score"
+            parent="menu_smartfinance_root"
+            action="action_smartfinance_health"
+            sequence="3"/>
+
+  <menuitem id="menu_smartfinance_chat"
+            name="AI Assistant"
+            parent="menu_smartfinance_root"
+            action="action_smartfinance_chat"
+            sequence="4"/>
+
+  <menuitem id="menu_smartfinance_report"
+            name="📋 Financial Report"
+            parent="menu_smartfinance_root"
+            action="action_generate_financial_report"
+            sequence="5"/>
+</odoo>
