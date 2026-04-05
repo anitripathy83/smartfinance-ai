@@ -165,6 +165,7 @@ python odoo-bin -c odoo.conf -u smartfinance_ai
 ## 👨‍💻 Author
 
 **The Odoo-Crewz**
+
 Built for the Odoo Hackathon 2026  
 GitHub: [@anitripathy83](https://github.com/anitripathy83)
 
