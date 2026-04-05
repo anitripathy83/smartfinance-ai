@@ -2,7 +2,7 @@
     'name': 'SmartFinance AI',
     'version': '1.0.0',
     'summary': 'AI-powered financial insights and alerts',
-    'author': 'Your Name',
+    'author': 'The Odoo-Crewz',
     'category': 'Accounting/Finance',
     'depends': [
         'base',
