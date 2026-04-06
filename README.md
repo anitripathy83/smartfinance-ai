@@ -7,15 +7,15 @@
 
 ## 🎯 What is SmartFinance AI?
 
-SmartFinance AI is a custom Odoo module that transforms your ERP into an intelligent financial advisor. It automatically scans data across 6 Odoo modules every 24 hours, generates AI-powered insights, scores your business health, and answers financial questions in plain English — all without any manual input.
+SmartFinance AI is a custom Odoo module that transforms your ERP into an intelligent financial advisor. It automatically scans data across 6 Odoo modules every 24 hours, generates AI-powered insights, scores your business health, benchmarks your KPIs against industry standards, detects cross-module correlations, and answers financial questions in plain English — all without any manual input.
 
-**The core idea:** A finance manager opens Odoo in the morning and immediately sees what needs attention, what is at risk, and what to do about it.
+**The core idea:** A finance manager opens Odoo in the morning and immediately sees what needs attention, what is at risk, how they compare to industry, and what to do about it.
 
 ---
 
-## ✨ Features
+## ✨ Features (7 Modules)
 
-### 📊 KPI Dashboard
+### 📊 1. KPI Dashboard
 A live, unified dashboard showing every critical business metric in one screen:
 - Cash inflow and outflow (last 30 days)
 - Net cash position
@@ -24,19 +24,19 @@ A live, unified dashboard showing every critical business metric in one screen:
 - Active employee headcount
 - Overall financial health score
 
-### 🚨 AI Insights Engine
-A Python engine that runs daily and automatically:
-- Detects overdue invoices and calculates total outstanding amount
-- Monitors cash flow trends and flags declining inflow
-- Identifies stale CRM opportunities at risk
-- Flags incomplete employee profiles and departments without managers
-- Tracks purchase orders awaiting vendor bills
-- Color-codes alerts by severity: Critical, High, Medium, Low
+### 🚨 2. AI Insights Engine
+A Python engine that runs daily and automatically detects problems across 6 Odoo modules:
+- Overdue invoices with total AED value
+- Cash flow decline trends
+- Stale CRM opportunities at risk
+- Incomplete employee profiles
+- Departments without managers
+- Purchase orders awaiting vendor bills
 
-Each insight includes what the problem is (with exact AED figures), why it matters, and a step-by-step recommended action.
+Each insight includes severity (Critical / High / Medium / Low), full analysis, and step-by-step recommended actions.
 
-### 🏥 Financial Health Score
-A composite 0-100 score updated daily, calculated across 5 weighted dimensions:
+### 🏥 3. Financial Health Score
+A composite 0-100 score updated daily across 5 weighted dimensions:
 
 | Dimension | Weight | How it is scored |
 |-----------|--------|------------------|
@@ -46,22 +46,45 @@ A composite 0-100 score updated daily, calculated across 5 weighted dimensions:
 | CRM | 10% | Pipeline win rate |
 | Purchasing | 5% | Unbilled PO rate |
 
-### 🤖 AI Assistant
+### 🤖 4. AI Assistant
 A conversational interface that answers financial questions using live Odoo data:
-- "What are my biggest financial risks?"
-- "How is my cash flow this month?"
-- "What do you recommend I do?"
-- "What is my financial health score?"
-- "How is my CRM pipeline?"
+- Quick-action buttons for instant answers
+- Covers overdue invoices, cash flow, CRM pipeline, workforce, risks, and recommendations
+- All answers pulled from live Odoo data in real time
 
-Quick-action buttons for instant answers — no typing required.
-
-### 📋 One-Click Financial Report
+### 📋 5. One-Click Financial Report
 Generates a complete executive financial summary in one click:
 - Full metrics snapshot across all modules
 - Auto-generated executive summary with key risks highlighted
 - Timestamped and ready to share with management
 - Historical reports saved for trend comparison
+
+### 🔗 6. Cross-Module Correlation Engine
+Detects statistical relationships between metrics across different Odoo modules using Pearson correlation analysis:
+
+| Correlation | Modules |
+|-------------|---------|
+| Invoice Volume vs Cash Inflow | Invoicing ↔ Accounting |
+| Headcount vs CRM Win Rate | HR ↔ CRM |
+| Expense Spikes vs Overdue Invoices | Expenses ↔ Invoicing |
+| CRM Pipeline Value vs Cash Inflow | CRM ↔ Accounting |
+| Purchase Volume vs Cash Outflow | Purchase ↔ Accounting |
+
+Each correlation includes a score (-1 to +1), strength classification, business interpretation, and recommended action.
+
+### 📈 7. Smart Benchmarking
+Compares your live KPIs against industry standard benchmarks and tells you exactly where you stand:
+
+| KPI | Industry Benchmark |
+|-----|--------------------|
+| Invoice Collection Period | 30 days |
+| CRM Win Rate | 20% |
+| Overdue Invoice Rate | Less than 10% |
+| Cash Flow Ratio | Greater than 1.2x |
+| Revenue per Employee | AED 200,000/year |
+| Expense to Revenue Ratio | Less than 15% |
+
+Status levels: Outperforming ✅ / On Track 🟡 / Needs Attention ⚠️ / Critical 🔴
 
 ---
 
@@ -74,7 +97,9 @@ smartfinance_ai/
 │   ├── insight_engine.py       # Daily analysis engine (6 analyzers)
 │   ├── ai_chat.py              # AI Assistant chat models
 │   ├── kpi_dashboard.py        # KPI Dashboard computed fields
-│   └── financial_report.py     # One-click report generator
+│   ├── financial_report.py     # One-click report generator
+│   ├── correlation_engine.py   # Cross-module Pearson correlation
+│   └── benchmarking.py         # Industry benchmarking engine
 │
 ├── views/
 │   ├── insight_views.xml       # AI Insights kanban/list/form
@@ -82,6 +107,8 @@ smartfinance_ai/
 │   ├── chat_views.xml          # AI Assistant interface
 │   ├── kpi_dashboard_views.xml # KPI Dashboard form
 │   ├── report_views.xml        # Financial Report form
+│   ├── correlation_views.xml   # Correlation Engine views
+│   ├── benchmarking_views.xml  # Smart Benchmarking views
 │   └── menu_views.xml          # Module menu structure
 │
 ├── security/
@@ -122,7 +149,7 @@ git clone https://github.com/anitripathy83/smartfinance-ai.git
 
 **2. Copy the module to your Odoo addons path:**
 ```bash
-cp -r smartfinance-ai /path/to/odoo/addons/
+cp -r smartfinance_ai /path/to/odoo/addons/
 ```
 
 **3. Restart Odoo server:**
@@ -141,15 +168,34 @@ python odoo-bin -c odoo.conf -u smartfinance_ai
 
 ---
 
+## 🎯 Demo Flow (5 Minutes)
+
+| Step | Action | What to say |
+|------|--------|-------------|
+| 1 | Open KPI Dashboard | "One screen. Every financial metric. Live." |
+| 2 | Click AI Insights → open Critical alert | "AI detected AED 110,000 in overdue invoices automatically" |
+| 3 | Click Health Score | "Business health scored 0-100 across 5 dimensions, updated daily" |
+| 4 | Click AI Assistant → Top Risks button | "Ask your finances anything in plain English" |
+| 5 | Click Financial Report | "One click generates a full executive report" |
+| 6 | Click Correlations | "Statistical analysis across 5 module pairs" |
+| 7 | Click Benchmarking | "Your KPIs vs industry standards — CRM win rate 2.5x the benchmark" |
+
+**Winning line for judges:**
+> "SmartFinance AI scanned 6 Odoo modules simultaneously, detected AED 110,000 in critical overdue invoices, scored business health at 32/100, benchmarked 6 KPIs against industry standards, and ran cross-module correlation analysis — all automatically, with zero manual input."
+
+---
+
 ## 📸 Module Overview
 
 | Screen | Description |
 |--------|-------------|
 | KPI Dashboard | Live metrics — cash flow, invoices, CRM, workforce |
 | AI Insights | Color-coded alerts grouped by severity |
-| Health Score | 0-100 score with dimension breakdown |
-| AI Assistant | Chat interface with quick-action buttons |
+| Health Score | 0-100 composite score with dimension breakdown |
+| AI Assistant | Conversational interface with quick-action buttons |
 | Financial Report | Auto-generated executive summary |
+| Correlations | Cross-module Pearson correlation analysis |
+| Benchmarking | KPI comparison against industry standards |
 
 ---
 
@@ -158,6 +204,7 @@ python odoo-bin -c odoo.conf -u smartfinance_ai
 - **Backend:** Python 3, Odoo ORM
 - **Frontend:** Odoo XML Views, QWeb
 - **Database:** PostgreSQL
+- **Analytics:** Pearson Correlation Coefficient, Statistical Benchmarking
 - **Platform:** Odoo 19 Community Edition
 
 ---
@@ -165,8 +212,7 @@ python odoo-bin -c odoo.conf -u smartfinance_ai
 ## 👨‍💻 Author
 
 **The Odoo-Crewz**
-
-Built for the Odoo Hackathon 2026  
+Built for the Odoo Hackathon 2026
 GitHub: [@anitripathy83](https://github.com/anitripathy83)
 
 ---
