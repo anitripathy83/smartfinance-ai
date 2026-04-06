@@ -80,12 +80,12 @@ class FinancialHealthScore(models.Model):
         inbound_payments = self.env['account.payment'].search([
             ('payment_type', '=', 'inbound'),
             ('date', '>=', thirty_days_ago),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
         ])
         outbound_payments = self.env['account.payment'].search([
             ('payment_type', '=', 'outbound'),
             ('date', '>=', thirty_days_ago),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
         ])
         total_inflow = sum(inbound_payments.mapped('amount'))
         total_outflow = sum(outbound_payments.mapped('amount'))
@@ -101,7 +101,7 @@ class FinancialHealthScore(models.Model):
         # Penalise for overdue invoices as a percentage of total
         all_invoices = self.env['account.move'].search([
             ('move_type', '=', 'out_invoice'),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
         ])
         overdue_invoices = all_invoices.filtered(
             lambda inv: (

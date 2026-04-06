@@ -34,7 +34,7 @@ class FinancialReport(models.Model):
         # Overdue invoices
         overdue = self.env['account.move'].search([
             ('move_type', '=', 'out_invoice'),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
             ('payment_state', 'not in', ['paid', 'reversed', 'in_payment']),
             ('invoice_date_due', '<', today),
         ])
@@ -44,12 +44,12 @@ class FinancialReport(models.Model):
         inbound = self.env['account.payment'].search([
             ('payment_type', '=', 'inbound'),
             ('date', '>=', thirty_days_ago),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
         ])
         outbound = self.env['account.payment'].search([
             ('payment_type', '=', 'outbound'),
             ('date', '>=', thirty_days_ago),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
         ])
         total_inflow = sum(inbound.mapped('amount'))
         total_outflow = sum(outbound.mapped('amount'))

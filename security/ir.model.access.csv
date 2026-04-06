@@ -6,3 +6,4 @@ access_smartfinance_chat,smartfinance.chat,model_smartfinance_chat,base.group_us
 access_smartfinance_chat_message,smartfinance.chat.message,model_smartfinance_chat_message,base.group_user,1,1,1,1
 access_smartfinance_kpi,smartfinance.kpi,model_smartfinance_kpi,base.group_user,1,1,1,1
 access_smartfinance_report,smartfinance.report,model_smartfinance_report,base.group_user,1,1,1,1
+access_smartfinance_correlation,smartfinance.correlation,model_smartfinance_correlation,base.group_user,1,1,1,1

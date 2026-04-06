@@ -33,4 +33,10 @@
             parent="menu_smartfinance_root"
             action="action_generate_financial_report"
             sequence="5"/>
+
+  <menuitem id="menu_smartfinance_correlation"
+            name="🔗 Correlations"
+            parent="menu_smartfinance_root"
+            action="action_smartfinance_correlation"
+            sequence="6"/>
 </odoo>

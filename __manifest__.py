@@ -2,7 +2,7 @@
     'name': 'SmartFinance AI',
     'version': '1.0.0',
     'summary': 'AI-powered financial insights and alerts',
-    'author': 'The Odoo-Crewz',
+    'author': 'Your Name',
     'category': 'Accounting/Finance',
     'depends': [
         'base',
@@ -20,6 +20,7 @@
         'views/chat_views.xml',
         'views/kpi_dashboard_views.xml',
         'views/report_views.xml',
+        'views/correlation_views.xml',
         'views/menu_views.xml',
         'data/cron_jobs.xml',
     ],

@@ -20,7 +20,7 @@ class InsightEngine(models.Model):
         today = fields.Date.today()
         overdue = self.env['account.move'].search([
             ('move_type', '=', 'out_invoice'),
-            ('state', '=', 'posted'),
+            ('state', 'in', ['posted', 'in_process', 'paid']),
             ('payment_state', 'not in', ['paid', 'reversed', 'in_payment']),
             ('invoice_date_due', '<', today),
         ])
@@ -64,7 +64,7 @@ class InsightEngine(models.Model):
                 ('payment_type', '=', 'inbound'),
                 ('date', '>=', date_from),
                 ('date', '<=', date_to),
-                ('state', '=', 'posted'),
+                ('state', 'in', ['posted', 'in_process', 'paid']),
             ])
             return sum(payments.mapped('amount'))
 
@@ -73,7 +73,7 @@ class InsightEngine(models.Model):
                 ('payment_type', '=', 'outbound'),
                 ('date', '>=', date_from),
                 ('date', '<=', date_to),
-                ('state', '=', 'posted'),
+                ('state', 'in', ['posted', 'in_process', 'paid']),
             ])
             return sum(payments.mapped('amount'))
 
