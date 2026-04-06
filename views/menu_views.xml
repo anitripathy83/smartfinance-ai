@@ -39,4 +39,10 @@
             parent="menu_smartfinance_root"
             action="action_smartfinance_correlation"
             sequence="6"/>
+
+  <menuitem id="menu_smartfinance_benchmark"
+            name="📈 Benchmarking"
+            parent="menu_smartfinance_root"
+            action="action_run_benchmarking"
+            sequence="7"/>
 </odoo>

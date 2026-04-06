@@ -4,3 +4,4 @@ from . import ai_chat
 from . import kpi_dashboard
 from . import financial_report
 from . import correlation_engine
+from . import benchmarking

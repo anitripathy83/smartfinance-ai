@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_benchmark_list" model="ir.ui.view">
+    <field name="name">smartfinance.benchmark.list</field>
+    <field name="model">smartfinance.benchmark</field>
+    <field name="arch" type="xml">
+      <list string="Smart Benchmarking"
+            decoration-success="status == 'outperforming'"
+            decoration-warning="status == 'needs_attention'"
+            decoration-danger="status == 'critical'"
+            decoration-muted="status == 'on_track'">
+        <field name="name"/>
+        <field name="category"/>
+        <field name="your_value"/>
+        <field name="benchmark_value"/>
+        <field name="unit"/>
+        <field name="variance" string="Variance (%)"/>
+        <field name="status"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_benchmark_form" model="ir.ui.view">
+    <field name="name">smartfinance.benchmark.form</field>
+    <field name="model">smartfinance.benchmark</field>
+    <field name="arch" type="xml">
+      <form string="Benchmark Detail">
+        <sheet>
+          <h1><field name="name" readonly="1"/></h1>
+          <group>
+            <group string="Your Performance">
+              <field name="your_value" string="Your Value" readonly="1"/>
+              <field name="unit" string="Unit" readonly="1"/>
+              <field name="status" string="Status" readonly="1"/>
+            </group>
+            <group string="Industry Standard">
+              <field name="benchmark_value" string="Benchmark" readonly="1"/>
+              <field name="variance" string="Variance (%)" readonly="1"/>
+              <field name="higher_is_better" string="Higher is Better" readonly="1"/>
+            </group>
+          </group>
+          <group string="What This Means">
+            <field name="interpretation" nolabel="1" readonly="1"/>
+          </group>
+          <group string="Recommended Action">
+            <field name="recommended_action" nolabel="1" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_smartfinance_benchmark" model="ir.actions.act_window">
+    <field name="name">Smart Benchmarking</field>
+    <field name="res_model">smartfinance.benchmark</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <record id="action_run_benchmarking" model="ir.actions.server">
+    <field name="name">Run Smart Benchmarking</field>
+    <field name="model_id" ref="model_smartfinance_benchmark"/>
+    <field name="state">code</field>
+    <field name="code">model.run_benchmarking()</field>
+  </record>
+
+</odoo>

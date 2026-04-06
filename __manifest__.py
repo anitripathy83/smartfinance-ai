@@ -21,6 +21,7 @@
         'views/kpi_dashboard_views.xml',
         'views/report_views.xml',
         'views/correlation_views.xml',
+        'views/benchmarking_views.xml',
         'views/menu_views.xml',
         'data/cron_jobs.xml',
     ],
