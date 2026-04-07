@@ -168,23 +168,6 @@ python odoo-bin -c odoo.conf -u smartfinance_ai
 
 ---
 
-## 🎯 Demo Flow (5 Minutes)
-
-| Step | Action | What to say |
-|------|--------|-------------|
-| 1 | Open KPI Dashboard | "One screen. Every financial metric. Live." |
-| 2 | Click AI Insights → open Critical alert | "AI detected AED 110,000 in overdue invoices automatically" |
-| 3 | Click Health Score | "Business health scored 0-100 across 5 dimensions, updated daily" |
-| 4 | Click AI Assistant → Top Risks button | "Ask your finances anything in plain English" |
-| 5 | Click Financial Report | "One click generates a full executive report" |
-| 6 | Click Correlations | "Statistical analysis across 5 module pairs" |
-| 7 | Click Benchmarking | "Your KPIs vs industry standards — CRM win rate 2.5x the benchmark" |
-
-**Winning line for judges:**
-> "SmartFinance AI scanned 6 Odoo modules simultaneously, detected AED 110,000 in critical overdue invoices, scored business health at 32/100, benchmarked 6 KPIs against industry standards, and ran cross-module correlation analysis — all automatically, with zero manual input."
-
----
-
 ## 📸 Module Overview
 
 | Screen | Description |
